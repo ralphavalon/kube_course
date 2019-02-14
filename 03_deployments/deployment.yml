@@ -1,0 +1,32 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meu-deployment
+  labels:
+    deployment: bolado_deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      example: olx-bolada
+  template:
+    metadata:
+      labels:
+        example: olx-bolada
+    spec:
+      containers:
+      - name: meu-container
+        image: ralphavalon/kube_features:v1
+        ports:
+        - containerPort: 8081
+        env:
+        - name: API_HOST
+          value: "192.168.99.100:30934"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: meu-pod
+    labels:
+        example: olx-bolada
+spec:
+    containers:
+    - name: meu-container
+      image: ralphavalon/kube_features:v1
+      ports:
+      - containerPort: 8081

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: meu-pod-02
+    labels:
+        example: olx-bolada
+spec:
+    containers:
+    - name: meu-container
+      image: ralphavalon/kube_features:v1
+      ports:
+      - containerPort: 8081
+      env:
+      - name: API_HOST
+        value: "192.168.99.100:30934"
